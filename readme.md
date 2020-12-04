@@ -20,10 +20,10 @@ Simply use this code (Modify according to your needs):
 from pybeauty import Beauty
 
 def on_new_color(rgb_color):
-  r_value = rgb_color[0]
-  g_value = rgb_color[1]
-  b_value = rgb_color[2]
-  #Now you can do anything with the RGB values (set as background, set as text colour, etc..).
+    r_value = rgb_color[0]
+    g_value = rgb_color[1]
+    b_value = rgb_color[2]
+    #Now you can do anything with the RGB values (set as background, set as text colour, etc..).
 
 Beauty(Parameters, on_new_color) #Parameters is a dictionary for optional parameters (More about them specified below).
 ```
@@ -48,9 +48,9 @@ Optional Parameters that are available are listed below in Parameters section an
   
   Specefies colour in RGB format from which colours have to start varying.
   
-  - **Input type for start parameter:** int[]{R_Value, G_Value, B_Value} (eg. int[]{0, 0, 0} for black).
+  - **Input type for start parameter:** list [R_Value, G_Value, B_Value] (eg. [0, 0, 0] for black).
   
-  - **Default Value:** int[]{0, 0, 0} (for "dark", none or other mode parameter specified) and int[]{255, 255, 255} (for "light" mode parameter specified).
+  - **Default Value:** [0, 0, 0] (for "dark", none or other mode parameter specified) and [255, 255, 255] (for "light" mode parameter specified).
 
 - ### time (Optional):
   
