@@ -1,68 +1,41 @@
-# JBeauty
+# PyBeauty
 
-Java module for beautifully varying RGB colour sets which can be used for setting colours anywhere!
-This module basically varies RGB values in various random ranges via a thread executing continously after very
+Python module for beautifully varying RGB colour sets which can be used for setting colours anywhere!
+This module basically varies RGB values in various random ranges via threading.Timer() executing continously after very
 small interval of time i.e. in milliseconds hence resulting in beautiful transition of colours.
 
 ## Installation
 
-Simply using Gradle or Maven:
+Simply using PyPi:
 
-### Gradle:
-
-```gradle
-implementation 'com.abhaytr.jbeauty:JBeauty:1.0'
 ```
-
-### Maven:
-```maven
-<dependency>
-  <groupId>com.abhaytr.jbeauty</groupId>
-  <artifactId>JBeauty</artifactId>
-  <version>1.0</version>
-  <type>pom</type>
-</dependency>
+pip install pybeauty
 ```
 
 ## Usage
 
 Simply use this code (Modify according to your needs):
 
-```java
-import com.abhaytr.jbeauty.Beauty;
-import com.abhaytr.jbeauty.ColorListener;
-import java.util.Map;
-import java.util.HashMap;
+```python
+from pybeauty import Beauty
 
-class YourClass
-{
-  
-  public static void main(String args[])
-  {
-    Map parameters = new HashMap(); //For optional parameters (More about them below).
-    Beauty.start(parameters, new ColorListener()
-    {
-      @Override
-      public void on_new_color(int[] rgb_color)
-      {
-        int red_value = rgb_color[0];
-        int green_value = rgb_color[1];
-        int blue_value = rgb_color[2];
-        //Now you can do anything with the RGB values (set as background, font color, etc..).
-      }
-    });
-  }
+def on_new_color(rgb_color):
+  r_value = rgb_color[0]
+  g_value = rgb_color[1]
+  b_value = rgb_color[2]
+  #Now you can do anything with the RGB values (set as background, set as text colour, etc..).
 
-}
+Beauty(Parameters, on_new_color) #Parameters is a dictionary for optional parameters (More about them specified below).
 ```
-Optional Parameters that are available are listed below in Parameters section and have to be passed as a Map (keys as name of parameters listed in Parameters section and value is your desired choice according to the options available for that parameter as specified in the Parameters section) which will be the first parameter for start() method of Beauty class.
+
+Optional Parameters that are available are listed below in Parameters section and have to be passed as a Dictionary (keys as name of parameters listed in Parameters section and value is your desired choice according to the options available for that parameter as specified in the Parameters section) which will be the first parameter for Beauty() constructor.
 
 ## Parameters
 - ### mode (Optional)
   
   Specifies colour set in which the colours have to vary.
   
-  - **Parameter Value Type:** String or int[].
+  - **Parameter Value Type:** str or list.
   
   - **Options for mode parameter**
     - **"dark":** Varies the colour in dark colours only (useful for dark mode projects).
